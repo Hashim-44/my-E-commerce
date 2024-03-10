@@ -58,7 +58,7 @@
     [(ngModel)]="searchTerm"
     >
 <div class="row g-3">
-<div class="col-md-2 " *ngFor="let item of products.reverse().slice(0,12) | search:searchTerm ">
+<div class="col-md-2 " *ngFor="let item of products.slice(28,40).reverse()| search:searchTerm ">
     <div class="product pb-2" >
         <i *ngIf="wisListData.includes(item._id)" class="fa-solid fa-heart m-2 cursor-pointer h3 heart text-danger"   (click)="removeWish(item._id)"></i>
         <i *ngIf="!wisListData.includes(item._id)" class="fa-regular fa-heart m-2 cursor-pointer h3 heart"   (click)="addWish(item._id)"></i>
