@@ -1,0 +1,6 @@
+.fa-trash-can{
+    transition-duration: 0.5s!important;
+}
+.fa-trash-can:hover{
+    color: slategray!important;
+}

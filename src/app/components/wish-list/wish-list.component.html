@@ -1,0 +1,32 @@
+<section>
+
+  <h1 *ngIf="products.length==0"  class="text-capitalize text-main text-center fw-bolder">your wish list is empty</h1>
+   
+<div class="row g-3">
+<div class="col-md-2 " *ngFor="let item of products ">
+    <div class="product pb-2" >
+        <i class="fa-solid fa-trash-can m-2 cursor-pointer h3 text-danger " (click)="removeWish(item.id)"></i>
+      <div class="cursor-pointer p-2"   [routerLink]="['/details', item._id]">
+        <img class="w-100" [src]="item.imageCover" [alt]="item.title">
+        <h3 class="h6 text-main">
+            {{item.category.name}}
+        </h3>
+        <h4 class="h6">
+            {{item.title.split(' ').slice(0,2).join(' ')}}
+        </h4>
+        
+           
+            <div class="d-flex align-items-center justify-content-between">
+                <span>{{item.price| currency:'LE. '}}</span>
+            <div>
+                <i class="fas fa-star rating-color"></i>
+                <span class="text-muted">{{item.ratingsAverage}}</span>
+            </div>
+        </div>
+      </div>
+        <button (click)="removeWishAddCart(item._id)" (click)="addCart(item._id)" class="btn-main  mx-auto d-block text-capitalize"><i class="fa-solid fa-plus"></i> add product</button>
+    </div>
+</div>
+</div>
+
+</section>

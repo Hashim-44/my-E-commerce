@@ -1,0 +1,11 @@
+.btn-second{
+    transition-duration: 0.5s!important;
+}
+img{
+    width: 160px!important;
+    height: 60px!important;
+    mix-blend-mode: multiply;
+}
+a{
+    width: fit-content;
+}

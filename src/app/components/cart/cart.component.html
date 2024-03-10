@@ -1,0 +1,57 @@
+
+    <h1 class="text-main text-center fw-bolder text-capitalize" *ngIf="(cartDetils.totalCartPrice == null|| cartDetils.totalCartPrice == 0)" > your cart is empty...</h1>
+
+<section *ngIf="cartDetils.totalCartPrice>0" [ngClass]="cartDetils.totalCartPrice == null? 'd-none':'' " class="w-75 mx-auto bg-main-light p-3 rounded-3 my-2">
+    <h1 class="text-capitalize">shop cart</h1>
+   <div class="d-flex justify-content-between align-items-center"  >
+    <h3 class="text-main h5 fw-bolder">total price: {{cartDetils.totalCartPrice |currency:' LE. '}} </h3>
+    <h3 class="text-main h5 fw-bolder">Totla Number Of Items : {{cartDetils.products.length}}</h3>
+   </div>
+
+    <div class="row pb-2 border-bottom "  *ngFor="let item of cartDetils.products">
+        <div class="col-md-1 py-2">
+            <img class="w-100 rounded-2" [src]="item.product.imageCover" [alt]="item.product.title">
+        </div>
+        <div class="col-md-11 py-2 ">
+            <!-- details -->
+           <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h3 class="h5  ">
+                    {{item.product.title}}
+                   
+                </h3>
+                <p class="text-main m-0">
+                    price: {{item.price | currency:' LE. '}}
+                </p>
+                <button (click)="removeCartItem(item.product._id)" class="btn p-0 m-0 text-main"><i class="fa-regular fa-trash-can px-1"></i>Remove</button>
+            </div>
+            <!-- btns -->
+
+            <div class="d-flex align-items-center justify-content-between">
+                <button (click)="changeCount(item.product._id , item.count + 1)" 
+                class=" btn btn-second">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <span class="px-2"> {{item.count}} </span>
+                <button [ngClass]="item.count==1? 'disabled':'' "  
+                  (click)="changeCount(item.product._id , item.count - 1)"
+                   class=" btn btn-second">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+            </div>
+           </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center" >
+        <button class="btn btn-second fw-bolder 
+    text-capitalize 
+      mt-2 p-3" 
+     (click)="clear()" 
+     (click)="cleartoast()" >
+     clear your cart
+    </button>
+    <button class="btn btn-primary text-capitalize p-1 mt-2"
+    [routerLink]="['/check-out', cartDetils._id]"
+    >online payment <img src="./assets/images/visa-1.svg"  alt=""></button>
+    </div>
+</section>

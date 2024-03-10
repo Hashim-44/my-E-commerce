@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary px-3 fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="home">
+        <img src="./assets/images/logo.jpg"  alt="">
+      </a>
+      <p class="text-main h4 mt-2 fw-bolder text-capitalize"> welcome {{myname.split(' ').slice(0,1)}} </p>
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav  me-auto mb-2 ms-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-capitalize" routerLinkActive="active-link" aria-current="page" routerLink="home">home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-capitalize" routerLinkActive="active-link" aria-current="page" routerLink="cart">cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-capitalize" routerLinkActive="active-link" aria-current="page" routerLink="wish-list">wish list</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-capitalize" routerLinkActive="active-link" aria-current="page" routerLink="products">products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-capitalize" routerLinkActive="active-link" aria-current="page" routerLink="categories">categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-capitalize" routerLinkActive="active-link" aria-current="page" routerLink="brands">brands</a>
+          </li>
+         
+         
+          
+        </ul>
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+         
+         
+          
+         
+
+         <li class="nav-item">
+          <a class="nav-link position-relative cursor-pointer" routerLink="/cart" >
+            <i class="fas fa-cart-shopping text-main fa-2x  "></i>
+            <span class="badge bg-info position-absolute top-0 end-0">{{cartCount}}</span>
+            <span *ngIf="cartCount==null" class="badge bg-info position-absolute top-0 end-0">0</span>
+          </a>
+         </li>
+         <li class="nav-item">
+          <span class="nav-link cursor-pointer   btn btn-second mx-2" (click)="logOutUser()"> signOut  </span>
+        </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
