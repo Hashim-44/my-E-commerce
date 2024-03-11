@@ -39,7 +39,7 @@
     <div class="row g-4">
         <div *ngFor="let item of brandsData" class="col-md-3">
             <div class="product rounded p-2  cursor-pointer"  (click)="showImg(mod, item._id )" >
-                <img  [src]="item.image" [alt]="item.name">
+                <img  [src]="item.image" class="w-100" [alt]="item.name">
                 <h1 class="h5 text-main text-capitalize text-center fw-bolder">  {{item.name}} </h1>
             </div>
         </div>
